@@ -3,13 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-os.chdir("/Users/祁意城/Desktop/py_work/learn/homework/practical7")
+os.chdir("/Users/33356/IBI1_2022--23/IBI1_2022-23/practical7")
 os.getcwd()
 os.listdir()
 
 covid_data = pd.read_csv("full_data.csv")
 
-# showing the second column from every 100th row from the first 1000 rows (inclusive)
+# showing the second column from every 100th row from the first 1000 rows 
 first_1000 = covid_data.iloc[:1001]
 print(first_1000.iloc[0::100, 1])
 
@@ -26,14 +26,14 @@ mean_new_deaths = np.mean(new_deaths)
 print('mean of new cases:',mean_new_cases,'mean of new deaths:',mean_new_deaths)
 
 
-# create boxplot of new cases and new deaths on 31 March 2020
+# create the boxplot 
 plt.boxplot([new_cases,new_deaths])
 plt.xticks(ticks=[1, 2], labels=["New Cases", "New Deaths"])
 plt.ylabel("Number of Cases")
 plt.title("New Cases and New Deaths on 31 March 2020")
 plt.show()
 
-# plot both new cases and new deaths worldwide over time
+# new cases and new deaths
 world_data = covid_data[covid_data['location'] == 'World']
 world_new_cases = world_data["new_cases"]
 world_new_deaths = world_data["new_deaths"]
@@ -50,7 +50,7 @@ plt.xticks(fontsize = 7)
 plt.legend()
 plt.show()
 
-# answer the question stated in file question.txt
+# Answer the question
 UK_data = covid_data[covid_data['location'] == 'United Kingdom']
 UK_new_cases = UK_data["new_cases"]
 UK_total_cases = UK_data["total_cases"]
